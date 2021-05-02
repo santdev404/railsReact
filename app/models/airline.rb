@@ -4,6 +4,8 @@ class Airline < ApplicationRecord
 
     before_create :slugify
 
+    validates :name, presence: true, length: { maximum: 255 }
+
     def slugify
         self.slug = name.parameterize
     end
